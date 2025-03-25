@@ -9,12 +9,13 @@ using System.Web.Mvc;
 
 namespace StudentES.Controllers
 {
-    public class HomeController : Controller
+    public class CoursesController : Controller
     {
-        EnrollmentService enrollment = new EnrollmentService(new EnrollmentRepo());
+        CourseService course = new CourseService(new CoursesRepo());
+        // GET: Courses
         public ActionResult Index()
         {
-            var list = enrollment.getAll();
+            var list = course.getAll();
             return View(list);
         }
 
@@ -24,11 +25,11 @@ namespace StudentES.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Enrollment obj)
+        public ActionResult Create(Courses obj)
         {
             if (ModelState.IsValid)
             {
-                enrollment.create(obj);
+                course.create(obj);
                 return RedirectToAction("Index");
             }
             return View();
@@ -36,16 +37,16 @@ namespace StudentES.Controllers
 
         public ActionResult Edit(int Id)
         {
-            var item = enrollment.find(Id);
+            var item = course.find(Id);
             return View(item);
         }
 
         [HttpPost]
-        public ActionResult Edit(Enrollment obj)
+        public ActionResult Edit(Courses obj)
         {
             if (ModelState.IsValid)
             {
-                enrollment.update(obj);
+                course.update(obj);
                 return RedirectToAction("Index");
             }
             return View();
@@ -53,16 +54,16 @@ namespace StudentES.Controllers
 
         public ActionResult Delete(int Id)
         {
-            var item = enrollment.find(Id);
+            var item = course.find(Id);
             return View(item);
         }
 
         [HttpPost]
-        public ActionResult DeleteEnrollment(int Id)
+        public ActionResult DeleteCourse(int Id)
         {
             if (ModelState.IsValid)
             {
-                enrollment.delete(Id);
+                course.delete(Id);
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Delete", new { Id = Id});
@@ -70,11 +71,9 @@ namespace StudentES.Controllers
 
         public ActionResult Details(int Id)
         {
-            var item = enrollment.find(Id);
+            var item = course.find(Id);
             return View(item);
         }
-
-
 
 
     }
