@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace StudentES.Services.Interfaces
 {
@@ -14,5 +15,6 @@ namespace StudentES.Services.Interfaces
         int update(Courses obj);
         void delete(int Id);
         Courses find(int Id);
+        SelectList listofCourses();
     }
 }

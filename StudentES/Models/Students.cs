@@ -39,6 +39,15 @@ namespace StudentES.Models
         [Required]
         [Display(Name = "Gender")]
         public string gender { get; set; }
+
+        public string fullName
+        {
+            get
+            {
+                var output = firstName + " " + lastName;
+                return output;
+            }
+        }
     }
 
     public class StudentModelView: Students

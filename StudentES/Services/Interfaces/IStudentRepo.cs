@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace StudentES.Services.Interfaces
 {
@@ -15,5 +16,6 @@ namespace StudentES.Services.Interfaces
         int create(Students obj);
         int update(Students obj);
         void delete(int Id);
+        SelectList listofStudents();
     }
 }

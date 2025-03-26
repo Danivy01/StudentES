@@ -65,7 +65,7 @@ namespace StudentES.Controllers
                 enrollment.delete(Id);
                 return RedirectToAction("Index");
             }
-            return RedirectToAction("Delete", new { Id = Id});
+            return RedirectToAction("Delete", new { Id = Id });
         }
 
         public ActionResult Details(int Id)

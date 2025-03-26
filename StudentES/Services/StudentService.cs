@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace StudentES.Services
 {
@@ -20,6 +21,8 @@ namespace StudentES.Services
         public int create(Students obj) => repo.create(obj);
         public int update(Students obj) => repo.update(obj);
         public void delete(int Id) => repo.delete(Id);
-       
+        public SelectList listofStudents() => repo.listofStudents();
+
+
     }
 }

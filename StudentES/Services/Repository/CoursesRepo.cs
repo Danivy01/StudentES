@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace StudentES.Services.Repository
 {
@@ -54,6 +55,12 @@ namespace StudentES.Services.Repository
             {
                 Id = Id
             });
+        }
+
+        public SelectList listofCourses()
+        {
+            var list = new SelectList(getAll(), "Id", "name");
+            return list;
         }
     }
 }

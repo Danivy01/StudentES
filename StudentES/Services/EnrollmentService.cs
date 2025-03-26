@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace StudentES.Services
 {
@@ -21,5 +22,6 @@ namespace StudentES.Services
         public int update(Enrollment obj) => enrollmentRepo.update(obj);
         public void delete(int Id) => enrollmentRepo.delete(Id);
         public Enrollment find(int Id) => enrollmentRepo.find(Id);
+        public List<SelectListItem> statusOptions() => enrollmentRepo.statusOptions();
     }
 }

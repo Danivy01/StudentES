@@ -69,5 +69,11 @@ namespace StudentES.Services.Repository
             genderOptions.Add(new SelectListItem { Text = "Female", Value = "Female" });
             return genderOptions;
         }
+
+        public SelectList listofStudents()
+        {
+            var list = new SelectList(getAll(), "Id", "fullname");
+            return list;
+        }
     }
 }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace StudentES.Services.Repository
 {
@@ -55,10 +56,18 @@ namespace StudentES.Services.Repository
 
         public Enrollment find(int Id)
         {
-            return sql.QuerySingle<Enrollment>("SELECT * FROM tbl_enrollment WHERE Id = @Id", new
+            return sql.QuerySingle<Enrollment>("SELECT * FROM vw_enrollment WHERE Id = @Id", new
             {
                 Id = Id
             });
+        }
+
+        public List<SelectListItem> statusOptions()
+        {
+            var statusOptions = new List<SelectListItem>();
+            statusOptions.Add(new SelectListItem { Text = "New Applicant", Value = "New Applicant" });
+            statusOptions.Add(new SelectListItem { Text = "Enrolled", Value = "Enrolled" });
+            return statusOptions;
         }
 
     }
